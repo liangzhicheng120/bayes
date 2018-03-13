@@ -14,13 +14,11 @@ public class TestBayes {
 		String modelName = classPath + "/model/classify_model.txt";
 		ArrayList<ArrayList<String>> model = Bayes.read(modelName);
 		// 抽取10个关键词组成一个元祖
-		ArrayList<String> testData1 = (ArrayList<String>) HanLP.extractKeyword("据了解，2017年，北京市将加大自住房供应力度，将新增1.5万套自住房用地，而近期就有近一半自住房用地有了着落。", 10);
-		ArrayList<String> testData2 = (ArrayList<String>) HanLP.extractKeyword("小明语文考试考了100分,非常高兴,也非常兴奋,结果被老爸打了一顿,郁闷了一天。", 10);
-		for (String string : testData2) {
-			System.out.println(string);
-		}
+		ArrayList<String> testData = (ArrayList<String>) HanLP
+				.extractKeyword(
+						"时值“大海贼时代”，为了寻找传说中海贼王罗杰所留下的大秘宝“ONE PIECE”，无数海贼扬起旗帜，互相争斗。有一个梦想成为海盗的少年叫路飞，他因误食“恶魔果实”而成为了橡皮人，在获得超人能力的同时付出了一辈子无法游泳的代价。十年后，路飞为实现与因救他而断臂的香克斯的约定而出海，他在旅途中不断寻找志同道合的伙伴，开始了以成为海贼王为目标的伟大的冒险旅程[9]  ",
+						15);
 		// 输出预测结果
-		System.out.println(Bayes.predictClassify(model, testData1));
-		System.out.println(Bayes.predictClassify(model, testData2));
+		System.out.println(Bayes.predictClassify(model, testData));
 	}
 }
